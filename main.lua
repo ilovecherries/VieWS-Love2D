@@ -17,6 +17,8 @@ utf8 = require("utf8")
 -- You can pass "false" to this and the debug tools will be disabled.
 DebugHelper = require("debug.helper")(true)
 
+local Listener = require("views.listen")
+
 function love.load()
 	fpsLimit = {
 		tick = 0,
@@ -62,6 +64,8 @@ function love.load()
 	}
 	
 	require("apps/bar").setup(view)
+
+	Listener:load()
 	
 	timeSpent = 0
 end
@@ -79,6 +83,8 @@ function love.update(dt)
 	
 	-- Maybe update the debug tools.
 	DebugHelper:update(dt)
+
+	Listener:update(dt)
 	
 	-- Push time forward.
 	timeSpent = timeSpent + dt
@@ -96,4 +102,5 @@ function love.draw()
 	-- Maybe draw the debug tools.
 	love.graphics.setColor(1, 1, 1)
 	DebugHelper:draw(screen, font)
+	Listener:draw(screen)
 end

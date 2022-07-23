@@ -263,6 +263,14 @@ function VieWS:update(dt)
 	end
 	
 	self.desktop:update()
+
+	-- this is a dumb stupid thing
+	local msg = love.thread.getChannel('vipc'):pop()
+	if msg then
+		if string.starts(msg, 'W') then
+			VieWS:addWindow(loadstring(string.substr(msg, 1)))
+		end
+	end
 	
 	local windowTmp = nil
 	for i, w in ipairs(self.windows) do
