@@ -1,6 +1,7 @@
 -- OOP stuff.
 Object = require("util.object") -- Renamed from "Classic" by rxi
 OptObject = require("util.optobject")
+Shm = require('libshmlib')
 
 -- Math stuff.
 VectorTypes = require("util.geometry.vector")
@@ -35,7 +36,7 @@ function love.load()
 	
 	require("views/views")
 	
-	screen = PixelScreen(Vec2(512, 342))
+	screen = PixelScreen(Vec2(512*2, 342*2))
 	screen:centerScaleIn(Vec2(love.graphics.getDimensions()))
 	CallbackWrapper:addLoveFunction('resize', function(width, height)
 		screen:centerScaleIn(Vec2(width, height))

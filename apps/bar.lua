@@ -8,6 +8,7 @@ function Bar.setup(vSelf)
 			{"Palette", "palette"},
 			{"Patterns", "patterns"},
 			{"Eyes", "eyes"},
+			{"Powder", "powder"},
 		},
 		topLeft = Vec2(8, -1),
 		marginX = 2,

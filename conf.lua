@@ -1,5 +1,5 @@
 function love.conf(t)
-	local w, h = 512, 342
+	local w, h = 512*2, 342*2
 	local scale = 1
 	
 	t.window.width = w * scale
